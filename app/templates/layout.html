@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title block can be overridden by child templates -->
+    <title>{% block title %}Finance Tracker{% endblock %}</title>
+    <!-- Link to new stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('main.index') }}" class="nav-brand">Finance Tracker</a>
+            <a href="{{ url_for('main.add') }}" class="nav-link">Add New Entry</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- The content block is where child templates will inject their content -->
+        {% block content %}{% endblock %}
+    </main>
+    
+</body>
+</html>```

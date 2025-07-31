@@ -13,11 +13,10 @@ def create_app():
         DATABASE=os.path.join(app.instance_path, 'finance.db'),
     )
 
-    # Ensure the instance folder exists. Flask doesn't create it automatically.
     try:
         os.makedirs(app.instance_path)
     except OSError:
-        pass # The folder probably already exists.
+        pass 
 
     # Initialize the database with our application
     from . import db
