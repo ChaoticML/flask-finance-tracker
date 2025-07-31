@@ -5,6 +5,34 @@
 {% block content %}
     <h2>Dashboard</h2>
 
+    <!-- Summary Cards Section -->
+    <div class="summary-cards">
+        <div class="card">
+            <h3>Net Worth</h3>
+            <p>€{{ "%.2f"|format(net_worth) }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Asset Value</h3>
+            <p>€{{ "%.2f"|format(total_assets) }}</p>
+        </div>
+        <div class="card">
+            <h3>Cash on Hand</h3>
+            <p>€{{ "%.2f"|format(total_cash) }}</p>
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-container">
+        <!-- 
+          The |safe filter is CRITICAL here. 
+          It tells Flask to render the HTML for the chart 
+          instead of displaying it as plain text.
+        -->
+        {{ pie_chart_html | safe }}
+    </div>
+
+    <!-- Data Table Section -->
+    <h3>All Entries</h3>
     <table>
         <thead>
             <tr>
@@ -31,4 +59,4 @@
             {% endfor %}
         </tbody>
     </table>
-{% endblock %}
+{% endblock %}```
