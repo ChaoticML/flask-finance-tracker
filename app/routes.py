@@ -40,8 +40,8 @@ def index():
             transactions_df['entry_date'] = pd.to_datetime(transactions_df['entry_date'])
 
             # 3. Group by month and sum the amounts. This is the core logic.
-            # 'M' stands for Month-end frequency. I set the date as the index to perform the resampling.
-            monthly_data = transactions_df.set_index('entry_date').resample('M')['amount'].sum().reset_index()
+            # 'ME' stands for Month-end frequency. I set the date as the index to perform the resampling.
+            monthly_data = transactions_df.set_index('entry_date').resample('ME')['amount'].sum().reset_index()
 
             # 4. Create separate 'Income' and 'Expense' columns for clear charting.
             monthly_data['Income'] = monthly_data['amount'].clip(lower=0)
