@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Entry{% endblock %}
+
+{% block content %}
+    <h2>Edit Entry</h2>
+    
+    <form method="post">
+        <label for="entry_date">Date</label>
+        <input type="date" name="entry_date" id="entry_date" value="{{ entry['entry_date'] }}" required>
+
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="{{ entry['description'] }}" required>
+
+        <label for="amount">Amount</label>
+        <input type="number" step="0.01" name="amount" id="amount" value="{{ entry['amount'] }}" required>
+        
+        <label for="category">Category</label>
+        <input type="text" name="category" id="category" value="{{ entry['category'] }}" required>
+
+        <label for="entry_type">Type</label>
+        <select name="entry_type" id="entry_type" required>
+            <option value="Bank Transaction" {% if entry['entry_type'] == 'Bank Transaction' %}selected{% endif %}>Bank Transaction</option>
+            <option value="Cash" {% if entry['entry_type'] == 'Cash' %}selected{% endif %}>Cash</option>
+            <option value="Asset" {% if entry['entry_type'] == 'Asset' %}selected{% endif %}>Asset</option>
+        </select>
+
+        <button type="submit">Save Changes</button>
+    </form>
+{% endblock %}
