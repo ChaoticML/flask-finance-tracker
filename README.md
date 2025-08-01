@@ -1,7 +1,7 @@
 # flask-finance-tracker
 
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-2.3-000000?logo=flask)](https://flask.palletsprojects.com/)
+[![Flask](https://img.shields.io/badge/Flask-3.1-000000?logo=flask)](https://flask.palletsprojects.com/)
 ![Status](https://img.shields.io/badge/Status-Active%20Development-blue)
 
 ## Inspiration
