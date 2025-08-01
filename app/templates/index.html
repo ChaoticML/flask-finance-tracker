@@ -3,7 +3,35 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-    <h2>Dashboard</h2>
+    <div class="dashboard-header">
+        <h2>Dashboard</h2>
+        <!-- FILTER FORM -->
+        <form method="get" class="filter-form">
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="">All Categories</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat.name }}" {% if cat.name == selected_category %}selected{% endif %}>
+                            {{ cat.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+                <input type="date" name="start_date" id="start_date" value="{{ start_date }}">
+            </div>
+            <div class="form-group">
+                <label for="end_date">End Date</label>
+                <input type="date" name="end_date" id="end_date" value="{{ end_date }}">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-filter">Filter</button>
+                <a href="{{ url_for('main.index') }}" class="btn-clear">Clear</a>
+            </div>
+        </form>
+    </div>
 
     <!-- Summary Cards Section -->
     <div class="summary-cards">
@@ -52,8 +80,6 @@
                 <td>{{ entry['category'] }}</td>
                 <td>{{ entry['entry_type'] }}</td>
                 <td>€{{ "%.2f"|format(entry['amount']) }}</td>
-                
-                <!-- ACTIONS COLUMN -->
                 <td class="actions">
                     <a href="{{ url_for('main.edit', id=entry['id']) }}" class="btn btn-edit">Edit</a>
                     <form action="{{ url_for('main.delete', id=entry['id']) }}" method="post" style="display: inline;">
@@ -63,7 +89,7 @@
             </tr>
             {% else %}
             <tr>
-                <td colspan="5" style="text-align: center;">No entries yet. Add one!</td>
+                <td colspan="6" style="text-align: center;">No entries found for the selected filters.</td>
             </tr>
             {% endfor %}
         </tbody>
