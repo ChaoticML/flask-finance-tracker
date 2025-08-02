@@ -26,7 +26,7 @@ This project is a personal finance tracker built using the Flask web framework. 
 *   **Filtering:**
     *   Filter transactions by category and date range to analyze specific periods or spending habits.
 *   **Clean and Responsive Design:** The application is designed with a modern and user-friendly interface.
-*   **Git Version Control:** The project is managed using Git for version control and collaboration.
+
 
 ## Getting Started
 
